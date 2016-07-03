@@ -1,0 +1,232 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/github-dark.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Conferencecoverage</title>
+  <meta name="description" content="Twitter Conference Coverage analysis from hastag using R-project">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Conferencecoverage</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">Twitter Conference Coverage analysis from hastag using R-project</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/MaxUlysse/conferenceCoverage/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/MaxUlysse/conferenceCoverage/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/MaxUlysse/conferenceCoverage" class="code">View Conferencecoverage on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a id="conferencecoverage-13" class="anchor" href="#conferencecoverage-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>conferenceCoverage 1.3</h1>
+
+<h2>
+<a id="about" class="anchor" href="#about" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ABOUT</h2>
+
+<p>Get twitter conference coverage based on a hashtag over time with <a href="https://www.r-project.org/">R</a> <a href="https://github.com/geoffjentry/twitteR">twitteR</a> package.</p>
+
+<p>Visualization made with <a href="http://ggplot2.org/">ggplot2</a>, <a href="https://github.com/hadley/scales/">scales</a> and <a href="https://cran.r-project.org/web/packages/wordcloud/index.html">wordcloud</a> packages</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>USAGE</h2>
+
+<div class="highlight highlight-source-shell"><pre>./conferenceCoverage.R -a HASTAG -d DATE -l LENGTH [-f MINFILTER <span class="pl-k">-u</span> MAXUSERS <span class="pl-k">-t</span> MAXTWEETS]</pre></div>
+
+<ul>
+<li>HASTAG is the hastag for the conference (without #)</li>
+<li>DATE is the first day of the conference in YYYY-MM-DD format</li>
+<li>LENGTH is the length in days of the conference</li>
+<li>MINFILTER is the minimum number of tweets/user in the top user graph [default is 3]</li>
+<li>MAXUSERS is the maximum number of users in the top user graph [default is 40]</li>
+<li>MAXTWEETS is the maximum number of tweet/day required by the API [default is 1500]</li>
+</ul>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EXAMPLES</h2>
+
+<div class="highlight highlight-source-shell"><pre>./conferenceCoverage.R -a JOBIM2016 -d 2016-06-26 -l 5
+./conferenceCoverage.R -a JOBIM2016 -d 2016-06-26 -l 5 -f 5 -u 25 -t 1000</pre></div>
+
+<h2>
+<a id="help" class="anchor" href="#help" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HELP</h2>
+
+<h3>
+<a id="how-to-install-twitter-and-rcurl-package-on-ubuntu" class="anchor" href="#how-to-install-twitter-and-rcurl-package-on-ubuntu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to install twitteR and RCurl package on Ubuntu</h3>
+
+<p>In Shell:</p>
+
+<div class="highlight highlight-source-shell"><pre>sudo apt-get install r-base r-base-dev libxml2-dev libcurl4-openssl-dev curl libcairo-dev</pre></div>
+
+<p>If problems with svglite, check <a href="https://github.com/hadley/svglite">github.com/hadley</a></p>
+
+<p>In R console:</p>
+
+<div class="highlight highlight-source-r"><pre>install.packages(<span class="pl-s"><span class="pl-pds">"</span>devtools<span class="pl-pds">"</span></span>)
+install.packages(<span class="pl-s"><span class="pl-pds">"</span>RCurl<span class="pl-pds">"</span></span>)
+install.packages(<span class="pl-s"><span class="pl-pds">"</span>twitteR<span class="pl-pds">"</span></span>)
+install.packages(<span class="pl-s"><span class="pl-pds">"</span>ggplot2<span class="pl-pds">"</span></span>)
+install.packages(<span class="pl-s"><span class="pl-pds">"</span>tm<span class="pl-pds">"</span></span>)
+install.packages(<span class="pl-s"><span class="pl-pds">"</span>scales<span class="pl-pds">"</span></span>)
+install.packages(<span class="pl-s"><span class="pl-pds">"</span>wordcloud<span class="pl-pds">"</span></span>)
+install.packages(<span class="pl-s"><span class="pl-pds">"</span>optparse<span class="pl-pds">"</span></span>)</pre></div>
+
+<h3>
+<a id="how-to-get-pass-the-twitter-credentials-working-with-twitter" class="anchor" href="#how-to-get-pass-the-twitter-credentials-working-with-twitter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to get pass the twitter credentials working with twitteR</h3>
+
+<ul>
+<li>Log to your account on twitter.com (or create a new one)</li>
+<li>Go to <a href="https://dev.twitter.com/apps/">dev.twitter.com</a>
+</li>
+<li>Create an app to get a consumerKey and a consumerSecret</li>
+</ul>
+
+<p>In a R console :</p>
+
+<pre><code>library(twitteR)  
+consumer_key &lt;- 'YOURCONSUMERKEY'
+consumer_secret &lt;- 'YOURCONSUMERSECRET'
+access_token &lt;- 'YOURACCESSTOKEN'
+access_secret &lt;- 'YOURACCESSSECRET'
+save(list = c("consumer_key", "consumer_secret", "access_token", "access_secret"), file="cred")
+</code></pre>
+
+<p>The cred file just created contain all your credentials for Twitter, so don't share it on Github ;-). Now you just had to load it and you can authentify yourself with it.</p>
+
+<h2>
+<a id="to-do" class="anchor" href="#to-do" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TO DO</h2>
+
+<ul>
+<li>Add more stuff:
+
+<ul>
+<li>Choice of color theme</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CHANGELOG</h2>
+
+<h3>
+<a id="version-13" class="anchor" href="#version-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version 1.3:</h3>
+
+<ul>
+<li>Add NOT-A-BEER-WARE LICENSE</li>
+</ul>
+
+<h3>
+<a id="version-12" class="anchor" href="#version-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version 1.2:</h3>
+
+<ul>
+<li>Add <a href="https://github.com/trevorld/optparse">optparse</a> for handling arguments</li>
+<li>No longer positionnal arguments</li>
+<li>Add max number of tweets per day requested to twitter API as an option</li>
+<li>Add min number of tweets for top user graph as an option</li>
+<li>Add number of users on the top user graph as an option</li>
+</ul>
+
+<h3>
+<a id="version-111" class="anchor" href="#version-111" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version 1.1.1:</h3>
+
+<ul>
+<li>Add a min number of tweets for top user graph</li>
+</ul>
+
+<h3>
+<a id="version-11" class="anchor" href="#version-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version 1.1:</h3>
+
+<ul>
+<li>update Twitter logging due to changes in API</li>
+<li>update script</li>
+<li>update help</li>
+</ul>
+
+<h3>
+<a id="version-10" class="anchor" href="#version-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version 1.0:</h3>
+
+<ul>
+<li>add version number and changelog</li>
+</ul>
+
+<h3>
+<a id="version-β" class="anchor" href="#version-%CE%B2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version β:</h3>
+
+<ul>
+<li>add research saving</li>
+<li>add SVG pictures</li>
+<li>add help</li>
+</ul>
+
+<h3>
+<a id="version-α" class="anchor" href="#version-%CE%B1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version α:</h3>
+
+<ul>
+<li>project creation</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LICENSE</h2>
+
+<hr>
+
+<p>"THE NOT-A-BEER-WARE LICENSE" (Revision 42): <a href="https://github.com/MaxUlysse">@MaxUlysse</a> wrote this file.  As long as you retain this notice you can do whatever you want with this stuff.  If we meet some day, and you think this stuff is worth it, you can buy me not a beer in return.</p>
+
+<hr>
+
+<h2>
+<a id="notes" class="anchor" href="#notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NOTES</h2>
+
+<p>Script is mostly copied and slightly adapted on Neil and Stephen twitter analysis:</p>
+
+<ul>
+<li><a href="https://github.com/neilfws/Twitter">github.com/neilfws</a></li>
+<li><a href="https://github.com/stephenturner/twitterchive/blob/master/analysis/twitterchive.r">github.com/stephenturner</a></li>
+</ul>
+
+<p>Informations for installing twitteR and RCurl on Ubuntu:</p>
+
+<ul>
+<li><a href="http://freakonometrics.hypotheses.org/8256">freakonometrics</a></li>
+</ul>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/MaxUlysse" class="avatar"><img src="https://avatars3.githubusercontent.com/u/1019628?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/MaxUlysse">MaxUlysse</a> maintains <a href="https://github.com/MaxUlysse/conferenceCoverage">Conferencecoverage</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/MaxUlysse/conferenceCoverage/tarball/master" class="tar">tar</a><a href="https://github.com/MaxUlysse/conferenceCoverage/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
